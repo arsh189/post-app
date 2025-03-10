@@ -87,13 +87,13 @@
             @csrf
 
             <input type="text" id="name" name="name" placeholder="Full Name" value="{{ old('name') }}">
-            <div class="error" id="nameError"></div>
+            <div class="error" id="nameError">@error('name') {{ $message }}  @enderror</div>
 
             <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email') }}">
-            <div class="error" id="emailError"></div>
+            <div class="error" id="emailError">@error('email') {{ $message }}  @enderror</div>
 
             <input type="password" id="password" name="password" placeholder="Password">
-            <div class="error" id="passwordError"></div>
+            <div class="error" id="passwordError">@error('password') {{ $message }}  @enderror</div>
 
             <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password">
             <div class="error" id="confirmPasswordError"></div>
@@ -101,10 +101,10 @@
             <select id="role" name="role">
                 <option value="">Select Role</option>
                 @foreach($roles as $role)
-                    <option value="{{ $role->name }}">{{ ucfirst($role->name) }}</option>
+                    <option value="{{ $role->name }}" {{ old('role') == $role->name ? 'selected' : '' }} >{{ ucfirst($role->name) }}</option>
                 @endforeach
             </select>
-            <div class="error" id="roleError"></div>
+            <div class="error" id="roleError">@error('role') {{ $message }}  @enderror</div>
 
             <button type="submit">Register</button>
         </form>

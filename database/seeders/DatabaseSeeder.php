@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
+        $this->call([
+            RoleSeeder::class,
+        ]);
+
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Define permissions

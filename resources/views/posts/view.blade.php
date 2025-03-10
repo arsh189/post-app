@@ -19,7 +19,7 @@
         <!-- Buttons -->
         <div class="mt-6 flex justify-between items-center">
             <a href="{{ route('posts.index') }}" class="text-blue-500 hover:text-blue-700 font-semibold">
-                ← Back to Posts
+                ← Back to list
             </a>
 
             <div class="flex space-x-3">

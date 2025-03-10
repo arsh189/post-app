@@ -36,7 +36,7 @@
                     <td>
                         <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary btn-sm">View</a>
                         @if(Auth::user()->can('edit posts'))
-                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="#" class="btn btn-warning btn-sm editPostBtn" data-id="{{$post->id}}" data-title="{{$post->title}}" data-content="{{$post->content}}" data-bs-toggle="modal" data-bs-target="#editPostModal">Edit</a>
                         @endif
                         <button id="deletePost" data-id="{{ $post->id }}" class="btn btn-danger btn-sm delete-button">Delete</button>
                     </td>
