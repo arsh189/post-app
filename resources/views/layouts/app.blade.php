@@ -174,6 +174,11 @@
     </style>
 </head>
 <body data-theme="{{ auth()->user()->roles[0]->name }}">
+    <!-- Loader (Hidden by Default) -->
+    <div id="loader" class="fixed inset-0 flex items-center justify-center bg-gray-200 bg-opacity-50 hidden">
+        <div class="w-12 h-12 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+    </div>
+
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">

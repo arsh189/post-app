@@ -15,7 +15,7 @@
     </div>
 
     <!-- Image Upload Input -->
-    <input type="file" id="imageInput" accept="image/*" class="mt-3" style="cursor:pointer;">
+    <input type="file" id="imageInput" accept="image/*" class="mt-3" style="cursor:pointer; border:1px solid;">
 
     <!-- Image Preview for Cropping -->
     <div class="mt-3">
@@ -82,6 +82,7 @@
 
     document.getElementById("cropButton").addEventListener("click", function () {
         if (cropper) {
+            document.getElementById("loader").classList.remove("hidden");
             cropper.getCroppedCanvas().toBlob((blob) => {
                 let formData = new FormData();
                 formData.append("cropped_image", blob);
@@ -118,6 +119,10 @@
                 .catch(error => {
                     console.error("Error:", error);
                     Swal.fire("Error", "Something went wrong. Try again.", "error");
+                })
+                .finally(() => {
+                    // Hide loader when fetch completes (success or error)
+                    document.getElementById("loader").classList.add("hidden");
                 });
             });
         }
